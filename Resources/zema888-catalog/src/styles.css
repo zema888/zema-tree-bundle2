@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/dragula/dist/dragula.css';
+@import 'css/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css';
+@import 'css/sonatacore/vendor/ionicons/css/ionicons.min.css';
+@import 'css/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css';
+@import 'css/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css';
+@import 'css/sonataadmin/vendor/iCheck/skins/square/blue.css';
+@import 'css/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
+@import 'css/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css';
+@import 'css/sonatacore/vendor/select2/select2.css';
+@import 'css/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css';
+@import 'css/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css';
+@import 'css/sonataadmin/css/styles.css';
+@import 'css/sonataadmin/css/layout.css';
+@import 'css/sonataadmin/css/tree.css';
