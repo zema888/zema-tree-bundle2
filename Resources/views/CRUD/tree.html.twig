@@ -7,11 +7,7 @@
     </div>
     {% include 'SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig' with {'id' : 'tree'} %}
     {% include 'Zema888TreeBundle:CRUD:modal_edit_association_script.html.twig' with {'id' : 'tree', 'admin' : admin} %}
-    <script src="{{ asset('bundles/zema888-tree/runtime.js') }}"></script>
-    <script src="{{ asset('bundles/zema888-tree/polyfills.js') }}"></script>
-    <script src="{{ asset('bundles/zema888-tree/styles.js') }}"></script>
-    <script src="{{ asset('bundles/zema888-tree/vendor.js') }}"></script>
-    <script src="{{ asset('bundles/zema888-tree/main.js') }}"></script>
+    <script src="{{ asset('@Zema888TreeBundle/Resources/public/js/app.js') }}"></script>
 {% endblock %}
 
 {% block stylesheets %}
