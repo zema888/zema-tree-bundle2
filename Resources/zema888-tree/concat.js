@@ -2,8 +2,6 @@ var concat = require('concat-files');
 concat([
     './dist/runtime.js',
     './dist/polyfills.js',
-    './dist/styles.js',
-    './dist/vendor.js',
     './dist/main.js'
 ], '../public/js/app.js', function(err) {
     if (err) throw err;

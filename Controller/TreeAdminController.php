@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class TreeAdminController extends CRUDController
@@ -88,8 +89,10 @@ class TreeAdminController extends CRUDController
                     $arr['is_child'] = $children == true;
                     return $arr;
                 }, $nodes);
-
-                return new JsonResponse($result);
+//var_dump(json_encode($result, JSON_UNESCAPED_UNICODE));
+                return new Response(json_encode($result, JSON_UNESCAPED_UNICODE), 200, array(
+                    'Content-Type' => 'application/json; charset=UTF-8'
+                ));
             case 'move_node':
                 try {
                     $json = $request->getContent();
