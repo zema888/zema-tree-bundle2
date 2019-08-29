@@ -16,7 +16,6 @@
             "zema888\\ZemaTreeBundle\\": "src"
         }
     },
-    "minimum-stability": "stable",
     "require": {
         "php": ">=5.6.0",
         "stof/doctrine-extensions-bundle": "^1.2",
