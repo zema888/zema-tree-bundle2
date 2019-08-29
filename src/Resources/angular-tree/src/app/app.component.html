@@ -1,0 +1,5 @@
+<app-search *ngIf="dataService.status!=='move'"></app-search>
+<app-move *ngIf="dataService.status==='move'"></app-move>
+<app-tree *ngIf="dataService.status !== 'load' && dataService.status !== 'search'"></app-tree>
+<app-loader *ngIf="dataService.status==='load'"></app-loader>
+

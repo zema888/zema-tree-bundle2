@@ -1,0 +1,23 @@
+.node-menu {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  &.move {
+    top: 10px;
+    button {
+      line-height: 23px;
+      margin-right: 5px;
+      .mat-icon {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.node-name {
+  td {
+    padding: 0 5px;
+  }
+}

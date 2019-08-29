@@ -1,0 +1,23 @@
+<div>
+  <mat-tree [dataSource]="treeService.dataSource" [treeControl]="treeService.treeControl">
+    <!-- Leaf node -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <button mat-icon-button disabled></button>
+      <app-node [node]="node"></app-node>
+    </mat-tree-node>
+
+    <!-- expandable node -->
+    <mat-tree-node *matTreeNodeDef="let node; when: treeService.hasChild" matTreeNodePadding>
+      <button mat-icon-button
+              [attr.aria-label]="'toggle ' + node.filename"
+              (click)="loadChildren(node)"
+              matTreeNodeToggle>
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeService.treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <app-node [node]="node"></app-node>
+    </mat-tree-node>
+  </mat-tree>
+</div>
+

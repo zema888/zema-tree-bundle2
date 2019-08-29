@@ -1,0 +1,4 @@
+zema_tree_data:
+    path:     /zematree/data
+    defaults: { _controller: ZemaTreeBundle:TreeAdmin:treeData }
+

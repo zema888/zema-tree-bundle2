@@ -1,4 +1,0 @@
-zema888_tree_data:
-    path:     /tree/data
-    defaults: { _controller: Zema888TreeBundle:TreeAdmin:treeData }
-

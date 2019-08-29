@@ -1,0 +1,67 @@
+<table class="node-name">
+  <tr>
+    <td>
+      <mat-icon *ngIf="node.active"
+                style="color: green"
+                matTooltip="Опубликовано">visibility</mat-icon>
+      <mat-icon *ngIf="!node.active"
+                style="color: red"
+                matTooltip="Не опубликовано">visibility_off</mat-icon>
+    </td>
+    <td>{{node.title}}</td>
+    <td class="text-muted">(тип: {{node.module}})</td>
+  </tr>
+</table>
+<div class="node-menu" *ngIf="(dataService.status === 'tree' || dataService.status === 'search') && !hideMenu && !edited">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="move()" *ngIf="node.id != dataService.rootId && dataService.status !== 'search'">
+      <mat-icon>open_with</mat-icon>
+      <span>Переместить</span>
+    </button>
+    <button mat-menu-item (click)="edit()">
+      <mat-icon>edit</mat-icon>
+      <span>Редактировать</span>
+    </button>
+    <button mat-menu-item (click)="site()">
+      <mat-icon>pageview</mat-icon>
+      <span>На сайте</span>
+    </button>
+    <button mat-menu-item (click)="toogleActive()">
+      <ng-container *ngIf="!node.active">
+        <mat-icon>visibility</mat-icon>
+        <span>Опубликовать</span>
+      </ng-container>
+      <ng-container *ngIf="node.active">
+        <mat-icon>visibility_off</mat-icon>
+        <span>Скрыть</span>
+      </ng-container>
+    </button>
+    <button mat-menu-item (click)="delete()" *ngIf="node.id != dataService.rootId">
+      <mat-icon>delete_forever</mat-icon>
+      <span>Удалить</span>
+    </button>
+  </mat-menu>
+</div>
+<div class="node-menu move" *ngIf="dataService.status == 'move' && !hideMenu && !edited">
+  <button mat-stroked-button color="primary"
+          *ngIf="node.id != dataService.rootId"
+          matTooltip="Поместить перемещаемый объект перед этим элементом"
+          (click)="finishMove('before')">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+  <button mat-stroked-button color="primary"
+          *ngIf="node.id != dataService.rootId"
+          matTooltip="Поместить перемещаемый объект после этого элемента"
+          (click)="finishMove('after')">
+    <mat-icon>arrow_downward</mat-icon>
+  </button>
+  <button mat-stroked-button color="primary"
+          *ngIf="node.id != dataService.rootId"
+          matTooltip="Поместить перемещаемый объект в дочерние элементы этого элемента"
+          (click)="finishMove('into')">
+    <mat-icon>subdirectory_arrow_left</mat-icon>
+  </button>
+</div>

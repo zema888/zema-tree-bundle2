@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+      <div class="row search-table">
+        <div class="col-xs-9 col">
+          <mat-form-field style="width: 100%;">
+            <input matInput type="text" placeholder="Поиск" [formControl]="query">
+            <button mat-button matSuffix mat-icon-button aria-label="Искать" (click)="search()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-2 col col-xs-offset-1">
+          <button mat-raised-button color="warn" (click)="cancel()">Сброс</button>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="row" *ngIf="dataService.status=='search'">
+  <div class="col-xs-12" *ngIf="nodes && nodes.length > 0">
+    <div class="mat-tree-node" *ngFor="let node of nodes">
+      <app-node [node]="node"></app-node>
+    </div>
+  </div>
+  <div class="col-xs-12" *ngIf="nodes && nodes.length == 0">
+    По Вашему запросу ничего не найдено.
+  </div>
+</div>

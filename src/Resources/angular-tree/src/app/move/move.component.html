@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Перемещаемый элемент</h3>
+  </div>
+  <div class="panel-body">
+    <app-node [node]="dataService.movedNode" [hideMenu]="true"></app-node>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-md-10">
+        Выберите элемент и позицию перемещения
+      </div>
+      <div class="col-md-2">
+        <button mat-raised-button color="primary" (click)="cancel()">
+          <mat-icon>close</mat-icon>
+          <span>Отменить</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
