@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "zema888\\ZemaTreeBundle\\": "src"
+            "ZemaTreeBundle\\": "src"
         }
     },
     "minimum-stability": "stable",
