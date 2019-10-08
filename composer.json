@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "This Symfony bundle integrates angular matrial tree and Gedmo Nested Set directly to Sonata Admin",
     "keywords": ["ajax", "asynchronous", "async", "tree", "nested", "set", "bundle", "symfony", "bundle", "doctrine", "sonataproject"],
-    "homepage": "https://github.com/zema888/zema-tree-bundle",
+    "homepage": "https://github.com/zema888/zema-tree-bundle2",
     "license": "MIT",
     "authors": [
         {
