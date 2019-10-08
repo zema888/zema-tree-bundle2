@@ -23,7 +23,6 @@
         "stof/doctrine-extensions-bundle": "^1.2",
         "sonata-project/admin-bundle": "^3.1"
     },
-    "target-dir": "zema888/ZemaTreeBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1"
