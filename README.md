@@ -21,7 +21,7 @@ https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/tree.md
 
 Install it via composer 
 ```bash
-composer install zema888/tree-bundle
+composer require zema888/zema-tree-bundle2
 ```
 
 Register bundle in kernel `./app/AppKernel.php`
