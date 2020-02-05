@@ -10,9 +10,15 @@
     </td>
     <td>{{node.title}}</td>
     <td class="text-muted">(тип: {{node.module}})</td>
+    <td class="sonata-ba-list-field sonata-ba-list-field-select"  *ngIf="dataService.selectMode">
+      <button class="btn btn-primary" type="button" (click)="select(node)">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          Выбрать
+      </button>
+    </td>
   </tr>
 </table>
-<div class="node-menu" *ngIf="(dataService.status === 'tree' || dataService.status === 'search') && !hideMenu && !edited">
+<div class="node-menu" *ngIf="!dataService.selectMode && (dataService.status === 'tree' || dataService.status === 'search') && !hideMenu && !edited">
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>
   </button>

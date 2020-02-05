@@ -7,4 +7,5 @@
 /var/
 /vendor/
 /.idea/
+src/Resources/angular-tree/dist
 ###< symfony/framework-bundle ###

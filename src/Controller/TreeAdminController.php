@@ -16,6 +16,7 @@ class TreeAdminController extends CRUDController
     {
         return parent::editAction($id);
     }
+
     public function listAction()
     {
         $request = $this->getRequest();
@@ -43,6 +44,7 @@ class TreeAdminController extends CRUDController
             return $this->renderWithExtraParams(
                 'ZemaTreeBundle:CRUD:tree.html.twig',
                 [
+                    'selectMode' => $request->isXmlHttpRequest() ? 1 : 0,
                     'action' => 'list',
                     'csrf_token' => $this->getCsrfToken('sonata.batch'),
                     '_sonata_admin' => $request->get('_sonata_admin'),
@@ -57,7 +59,7 @@ class TreeAdminController extends CRUDController
     public function treeDataAction()
     {
         $request = $this->getRequest();
-        
+
         $doctrine = $this->get('doctrine');
         /** @var EntityManager $em */
         $em = $doctrine->getManagerForClass($this->admin->getClass());

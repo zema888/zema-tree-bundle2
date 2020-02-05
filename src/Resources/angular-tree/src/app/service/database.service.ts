@@ -18,11 +18,13 @@ import {MatSnackBar} from '@angular/material';
 export class Database {
   public host: string;
   public edit: string;
+  public list: string;
   public siteHost: string;
   public dataChange$: BehaviorSubject<Node[]>;
   public searchResult$: Subject<Node[]>;
   public statusChange$: Subject<string[]>;
   public movedNode: Node;
+  public selectMode: boolean;
 
   constructor(
     public http: HttpClient,

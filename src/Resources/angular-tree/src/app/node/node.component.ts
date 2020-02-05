@@ -41,6 +41,12 @@ export class NodeComponent implements OnInit, OnDestroy {
     this.edited = true;
   }
 
+  public select(node) {
+      if (typeof this._window.selectModeHundler === 'function') {
+          this._window.selectModeHundler(node.id);
+      }
+  }
+
   public edit() {
     if (this.dataService.edit.includes('?')) {
       const pregArr = /([^?]+)([?].*)/.exec(this.dataService.edit);

@@ -1,10 +1,16 @@
 <?php
 namespace ZemaTreeBundle\Transformer;
 
-// TODO передавать трансформер в бандл
+
+use ZemaTreeBundle\Interfaces\NodeInterface;
+
 class NodeTransformer
 {
-    public static function fromObjectToArray($node): array
+    /**
+     * @param NodeInterface $node
+     * @return array
+     */
+    public static function fromObjectToArray(NodeInterface $node): array
     {
         return [
             'id' => $node->getId(),
@@ -12,13 +18,17 @@ class NodeTransformer
             'lft' => $node->getLft(),
             'lvl' => $node->getLvl(),
             'path' => $node->getPath(),
-            'module' => $node->getModule()->getTitle(),
+            'module' => $node->getModuleTitle(),
             'parentId' => $node->getParentId(),
             'hasChildren' => $node->hasChildren(),
             'active' => $node->getActive(),
         ];
     }
 
+    /**
+     * @param NodeInterface[] $nodes
+     * @return array
+     */
     public static function fromCollectionToArray($nodes): array
     {
         $res = [];

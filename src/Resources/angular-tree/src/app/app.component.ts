@@ -17,6 +17,8 @@ export class AppComponent {
     this.dataService.host = native.getAttribute('host');
     this.dataService.edit = native.getAttribute('edit').replace('/%7Bid%7D/edit', '');
     this.dataService.rootId = native.getAttribute('root-id');
+    this.dataService.list = native.getAttribute('list');
     this.dataService.siteHost = native.getAttribute('site-host');
+    this.dataService.selectMode = native.getAttribute('select-mode') === '1';
   }
 }

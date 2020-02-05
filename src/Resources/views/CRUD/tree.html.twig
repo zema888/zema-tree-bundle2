@@ -8,20 +8,43 @@
     <link href="{{ asset('bundles/zematree/css/styles.css') }}" rel="stylesheet" type="text/css" media="all" />
 {% endblock %}
 
-{% block bootlint %}
-    {{ parent() }}
-    <script src="{{ asset('bundles/zematree/js/app.js') }}"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-{% endblock %}
 
 {% block list_table %}
     <div class="col-xs-12 col-md-12">
         <app-root id="zema-tree"
                   root-id="{{ rootNode }}"
                   site-host="{{ app.request.schemeAndHttpHost }}"
+                  select-mode="{{ selectMode }}"
+                list="{{ admin.generateUrl('list') }}"
                 host="{{ app.request.schemeAndHttpHost ~ path('zema_tree_data', {'_sonata_admin': _sonata_admin}) }}&operation="
                 edit="{{ app.request.schemeAndHttpHost ~ admin.generateUrl('edit', {'id': '{id}'}) }}"></app-root>
     </div>
+    <script>
+        if (!window.selectModeHundler) {
+            var scriptTag = document.createElement('script');
+            scriptTag.src = '{{ asset('bundles/zematree/js/app.js') }}';
+            document.body.appendChild(scriptTag);
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+            link.media = 'all';
+            head.appendChild(link);
+            window.selectModeHundler = function (objectId) {
+                jQuery('.modal').each(function (ind, el) {
+                    var $modal = jQuery(el);
+                    var attrId = $modal.attr('id');
+                    if (attrId.search(/field_dialog_/) > -1) {
+                        var id = '#' + attrId.replace('field_dialog_', '');
+                        jQuery(id).val(objectId);
+                        jQuery(id).change();
+                        $modal.modal('hide');
+                    }
+                });
+            };
+        }
+    </script>
 {% endblock %}
 
 {% block list_filters_actions %}
